@@ -1,33 +1,38 @@
+using BattleQuiz.Models;
+
 namespace BattleQuiz
 {
-    public partial class Form1 : Form
+    public partial class BattleQuizForm : Form
     {
 
         string correctAnswer;
         int questionNumber = 1;
         int score;
         int percentage;
-        int totalQuestions = 3;
+        public static int totalQuestions;
 
-        public Form1()
+        public static List<Question> questions = new List<Question>();
+
+        public BattleQuizForm()
         {
             InitializeComponent();
 
-            askQuestion(questionNumber);
+            AskQuestion(questionNumber);
 
             totalQuestions = 3;
         }
 
-        private void checkAnswerEvent(object sender, EventArgs e)
+        private void CheckAnswerEvent(object sender, EventArgs e)
         {
             if (txtAnswer.Text == correctAnswer)
             {
                 score++;
-                txtAnswer.Clear();
             }
             
             if (questionNumber == totalQuestions)
             {
+                questionNumber = 0;
+
                 // calculate the precentage
                 percentage = (int)Math.Round((double)(score * 100) / totalQuestions);
 
@@ -39,20 +44,20 @@ namespace BattleQuiz
                     );
 
                 score = 0;
-                questionNumber = 0;
-                askQuestion(questionNumber);
+                AskQuestion(questionNumber);
             }
-            
+
+            txtAnswer.Clear();
             questionNumber++;
-            askQuestion(questionNumber);
+            AskQuestion(questionNumber);
         }
 
-        private void askQuestion(int qnum)
+        private void AskQuestion(int qnum)
         {
             switch(qnum)
             {
                 case 1:
-                    pictureBox1.Image = Properties.Resources.eldenLord;
+                    pictureBox.Image = Properties.Resources.eldenLord;
 
                     lblQuestion.Text = "Which game is that man came from?";
 
@@ -61,7 +66,7 @@ namespace BattleQuiz
                     break;
 
                 case 2:
-                    pictureBox1.Image = Properties.Resources._1064722;
+                    pictureBox.Image = Properties.Resources._1064722;
 
                     lblQuestion.Text = "Which game is this?";
 
@@ -70,14 +75,50 @@ namespace BattleQuiz
                     break;
                 
                 case 3:
-                    pictureBox1.Image = Properties.Resources.wp5478770_street_fighter_v_champion_edition_wallpapers;
+                    pictureBox.Image = Properties.Resources.wp5478770_street_fighter_v_champion_edition_wallpapers;
 
                     lblQuestion.Text = "Which game is this?";
 
                     correctAnswer = "Street Fighter V";
 
                     break;
+
+                default:
+                    if (questions != null)
+                    {
+                        // temponary question numbers.
+                        int tempQnum = qnum - 4;
+                        foreach (var i in questions)
+                        {
+                            int index = questions.IndexOf(i);
+                            pictureBox.Image = i.Picture;
+                            lblQuestion.Text = i.Title;
+                            correctAnswer = i.CorrectAnswer;
+
+                            if (qnum < 5)
+                                break;
+                            else if (qnum >= 5)
+                            {
+                                if (index == tempQnum)
+                                    break;
+                                else
+                                    continue;
+                            }
+                        }
+                    }
+                    break;
             }
+        }
+
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void AddAQuestionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 QuestionForm = new Form2();
+            QuestionForm.ShowDialog();
         }
     }
 }
