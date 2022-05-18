@@ -22,6 +22,11 @@ namespace BattleQuiz
             totalQuestions = 3;
         }
 
+        private void BattleQuizForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void CheckAnswerEvent(object sender, EventArgs e)
         {
             if (txtAnswer.Text == correctAnswer)
@@ -36,15 +41,46 @@ namespace BattleQuiz
                 // calculate the precentage
                 percentage = (int)Math.Round((double)(score * 100) / totalQuestions);
 
-                MessageBox.Show(
-                    "Quiz ended!" + Environment.NewLine + 
-                    "You have answered " + score + " question correctly." + Environment.NewLine +
-                    "Your total percentage is " + percentage + "%" + Environment.NewLine +
-                    "Click OK to play again"
-                    );
+                DialogResult dialogResult;
 
-                score = 0;
-                AskQuestion(questionNumber);
+                if (score == 1)
+                {
+                    dialogResult = MessageBox.Show(
+                        "Quiz ended!" + Environment.NewLine + 
+                        "You have answered " + score + " question correctly." + Environment.NewLine +
+                        "Your total percentage is " + percentage + "%" + Environment.NewLine +
+                        "Click Yes to play again or click No to leave", "Confirm", MessageBoxButtons.YesNo
+                        );
+                }
+                else if (score == 0)
+                {
+                    dialogResult= MessageBox.Show(
+                        "Quiz ended!" + Environment.NewLine +
+                        "You have answered no questions correctly." + Environment.NewLine +
+                        "Your total percentage is " + percentage + "%" + Environment.NewLine +
+                        "Click Yes to play again or click No to leave", "Confirm", MessageBoxButtons.YesNo
+                        );
+                }
+                else
+                {
+                    dialogResult = MessageBox.Show(
+                        "Quiz ended!" + Environment.NewLine +
+                        "You have answered " + score + " questions correctly." + Environment.NewLine +
+                        "Your total percentage is " + percentage + "%" + Environment.NewLine +
+                        "Click Yes to play again or click No to leave", "Confirm", MessageBoxButtons.YesNo
+                        );
+                }
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    score = 0;
+                    AskQuestion(questionNumber);
+                }
+                else
+                {
+                    Application.Exit();
+                }
+
             }
 
             txtAnswer.Clear();
@@ -91,6 +127,7 @@ namespace BattleQuiz
                         foreach (var i in questions)
                         {
                             int index = questions.IndexOf(i);
+
                             pictureBox.Image = i.Picture;
                             lblQuestion.Text = i.Title;
                             correctAnswer = i.CorrectAnswer;
@@ -117,8 +154,14 @@ namespace BattleQuiz
 
         private void AddAQuestionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form2 QuestionForm = new Form2();
-            QuestionForm.ShowDialog();
+            AddQuestionForm addQuestionForm = new AddQuestionForm();
+            addQuestionForm.ShowDialog();
+        }
+
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.ShowDialog();
         }
     }
 }

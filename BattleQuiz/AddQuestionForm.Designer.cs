@@ -1,6 +1,6 @@
 ﻿namespace BattleQuiz
 {
-    partial class Form2
+    partial class AddQuestionForm
     {
         /// <summary>
         /// Required designer variable.
@@ -128,7 +128,7 @@
             this.thePicture.Size = new System.Drawing.Size(304, 23);
             this.thePicture.TabIndex = 9;
             // 
-            // Form2
+            // AddQuestionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -143,8 +143,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form2";
-            this.Text = "Form2";
+            this.Name = "AddQuestionForm";
+            this.Text = "Add a new Question";
             this.ResumeLayout(false);
             this.PerformLayout();
 

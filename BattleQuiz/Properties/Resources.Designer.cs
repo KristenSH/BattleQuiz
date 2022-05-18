@@ -93,6 +93,16 @@ namespace BattleQuiz.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap question_g5e90ad049_1920 {
+            get {
+                object obj = ResourceManager.GetObject("question-g5e90ad049_1920", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap wp5478770_street_fighter_v_champion_edition_wallpapers {
             get {
                 object obj = ResourceManager.GetObject("wp5478770-street-fighter-v-champion-edition-wallpapers", resourceCulture);

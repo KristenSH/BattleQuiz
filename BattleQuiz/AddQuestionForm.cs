@@ -11,11 +11,11 @@ using BattleQuiz.Models;
 
 namespace BattleQuiz
 {
-    public partial class Form2 : Form
+    public partial class AddQuestionForm : Form
     {
         string file;
         List<Question> list;
-        public Form2()
+        public AddQuestionForm()
         {
             InitializeComponent();
         }
@@ -48,19 +48,28 @@ namespace BattleQuiz
 
         private void CreateButton_Click(object sender, EventArgs e)
         {
-            Question question = new Question();
-            question.Title = titleText.Text;
-            question.Picture = Image.FromFile(file);
-            question.CorrectAnswer = correctAnswer.Text;
+            if (titleText.Text == "" || thePicture.Text == "" || correctAnswer.Text == "")
+            {
+                MessageBox.Show("All fields are required to fill in", "Warning",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
+            else
+            {
+                Question question = new Question();
+                question.Title = titleText.Text;
 
-            list = BattleQuizForm.questions;
-            list.Add(question);
-            BattleQuizForm.totalQuestions++;
+                question.Picture = Image.FromFile(file);
+                question.CorrectAnswer = correctAnswer.Text;
 
-            titleText.Clear();
-            thePicture.Clear();
-            correctAnswer.Clear();
+                list = BattleQuizForm.questions;
+                list.Add(question);
+                BattleQuizForm.totalQuestions++;
+
+                titleText.Clear();
+                thePicture.Clear();
+                correctAnswer.Clear();
+            }
         }
     }
 }
