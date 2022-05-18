@@ -23,7 +23,6 @@ namespace BattleQuiz
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
-
         }
 
         private void Browser_Click(object sender, EventArgs e)

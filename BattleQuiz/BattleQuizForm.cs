@@ -27,13 +27,15 @@ namespace BattleQuiz
 
         }
 
+
+
         private void CheckAnswerEvent(object sender, EventArgs e)
         {
             if (txtAnswer.Text == correctAnswer)
             {
                 score++;
             }
-            
+
             if (questionNumber == totalQuestions)
             {
                 questionNumber = 0;
@@ -46,7 +48,7 @@ namespace BattleQuiz
                 if (score == 1)
                 {
                     dialogResult = MessageBox.Show(
-                        "Quiz ended!" + Environment.NewLine + 
+                        "Quiz ended!" + Environment.NewLine +
                         "You have answered " + score + " question correctly." + Environment.NewLine +
                         "Your total percentage is " + percentage + "%" + Environment.NewLine +
                         "Click Yes to play again or click No to leave", "Confirm", MessageBoxButtons.YesNo
@@ -54,7 +56,7 @@ namespace BattleQuiz
                 }
                 else if (score == 0)
                 {
-                    dialogResult= MessageBox.Show(
+                    dialogResult = MessageBox.Show(
                         "Quiz ended!" + Environment.NewLine +
                         "You have answered no questions correctly." + Environment.NewLine +
                         "Your total percentage is " + percentage + "%" + Environment.NewLine +
@@ -90,7 +92,7 @@ namespace BattleQuiz
 
         private void AskQuestion(int qnum)
         {
-            switch(qnum)
+            switch (qnum)
             {
                 case 1:
                     pictureBox.Image = Properties.Resources.eldenLord;
@@ -109,7 +111,7 @@ namespace BattleQuiz
                     correctAnswer = "Final Fantasy VII";
 
                     break;
-                
+
                 case 3:
                     pictureBox.Image = Properties.Resources.wp5478770_street_fighter_v_champion_edition_wallpapers;
 
@@ -162,6 +164,12 @@ namespace BattleQuiz
         {
             AboutForm aboutForm = new AboutForm();
             aboutForm.ShowDialog();
+        }
+
+        // Terminate all forms
+        private void BattleQuizForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -112,21 +112,21 @@
             // addAQuestionToolStripMenuItem
             // 
             this.addAQuestionToolStripMenuItem.Name = "addAQuestionToolStripMenuItem";
-            this.addAQuestionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addAQuestionToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.addAQuestionToolStripMenuItem.Text = "Add a question";
             this.addAQuestionToolStripMenuItem.Click += new System.EventHandler(this.AddAQuestionToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -143,7 +143,9 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "BattleQuizForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Battle Quiz";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BattleQuizForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

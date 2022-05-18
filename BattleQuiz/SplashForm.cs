@@ -30,5 +30,10 @@ namespace BattleQuiz
                 this.Hide();
             }
         }
+
+        private void SplashForm_FormClosing(Object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(1);
+        }
     }
 }
