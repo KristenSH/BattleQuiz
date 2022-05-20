@@ -1,6 +1,6 @@
 ﻿namespace BattleQuiz
 {
-    partial class QuizBox
+    partial class QuestionList
     {
         /// <summary>
         /// Required designer variable.
@@ -28,36 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.Remove = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // listBox1
+            // Remove
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Items.AddRange(new object[] {
-            "Question1",
-            "Question2"});
-            this.listBox1.Location = new System.Drawing.Point(76, 75);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listBox1.Size = new System.Drawing.Size(267, 154);
-            this.listBox1.TabIndex = 0;
+            this.Remove.Location = new System.Drawing.Point(12, 312);
+            this.Remove.Name = "Remove";
+            this.Remove.Size = new System.Drawing.Size(75, 23);
+            this.Remove.TabIndex = 0;
+            this.Remove.Text = "Remove";
+            this.Remove.UseVisualStyleBackColor = true;
+            this.Remove.Click += new System.EventHandler(this.Remove_Click);
             // 
-            // QuizBox
+            // QuestionList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 363);
-            this.Controls.Add(this.listBox1);
-            this.Name = "QuizBox";
+            this.ClientSize = new System.Drawing.Size(245, 347);
+            this.Controls.Add(this.Remove);
+            this.Name = "QuestionList";
             this.Text = "QuizBox";
+            this.Load += new System.EventHandler(this.QuestionList_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private ListBox listBox1;
+        private Button Remove;
     }
 }

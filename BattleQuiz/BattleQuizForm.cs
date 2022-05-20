@@ -27,8 +27,6 @@ namespace BattleQuiz
 
         }
 
-
-
         private void CheckAnswerEvent(object sender, EventArgs e)
         {
             if (txtAnswer.Text == correctAnswer)
@@ -164,6 +162,12 @@ namespace BattleQuiz
         {
             AboutForm aboutForm = new AboutForm();
             aboutForm.ShowDialog();
+        }
+
+        private void QuestionListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuestionList questionList = new QuestionList();
+            questionList.ShowDialog();
         }
 
         // Terminate all forms

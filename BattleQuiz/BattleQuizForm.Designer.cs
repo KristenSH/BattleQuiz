@@ -38,6 +38,7 @@
             this.addAQuestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.questionListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -103,6 +104,7 @@
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addAQuestionToolStripMenuItem,
+            this.questionListToolStripMenuItem,
             this.aboutToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
@@ -112,23 +114,30 @@
             // addAQuestionToolStripMenuItem
             // 
             this.addAQuestionToolStripMenuItem.Name = "addAQuestionToolStripMenuItem";
-            this.addAQuestionToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.addAQuestionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addAQuestionToolStripMenuItem.Text = "Add a question";
             this.addAQuestionToolStripMenuItem.Click += new System.EventHandler(this.AddAQuestionToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
+            // 
+            // questionListToolStripMenuItem
+            // 
+            this.questionListToolStripMenuItem.Name = "questionListToolStripMenuItem";
+            this.questionListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.questionListToolStripMenuItem.Text = "Question list";
+            this.questionListToolStripMenuItem.Click += new System.EventHandler(this.QuestionListToolStripMenuItem_Click);
             // 
             // BattleQuizForm
             // 
@@ -166,5 +175,6 @@
         private ToolStripMenuItem aboutToolStripMenuItem;
         private ToolStripMenuItem addAQuestionToolStripMenuItem;
         public PictureBox pictureBox;
+        private ToolStripMenuItem questionListToolStripMenuItem;
     }
 }
