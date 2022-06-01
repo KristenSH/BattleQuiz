@@ -80,7 +80,6 @@ namespace BattleQuiz
                 {
                     Application.Exit();
                 }
-
             }
 
             txtAnswer.Clear();

@@ -13,8 +13,11 @@ namespace BattleQuiz
 {
     public partial class AddQuestionForm : Form
     {
-        string file;
-        List<Question> list;
+        private string file;
+        private int questionId;
+        private static List<Question> list;
+        private bool editMode = false;
+
         public AddQuestionForm()
         {
             InitializeComponent();
@@ -55,20 +58,68 @@ namespace BattleQuiz
 
             else
             {
-                Question question = new Question();
-                question.Title = titleText.Text;
+                if (!editMode)
+                {
+                    Question question = new Question();
+                    question.Title = titleText.Text;
 
-                question.Picture = Image.FromFile(file);
-                question.CorrectAnswer = correctAnswer.Text;
+                    question.Picture = Image.FromFile(file);
+                    question.FilePath = file;
 
-                list = BattleQuizForm.questions;
-                list.Add(question);
-                BattleQuizForm.totalQuestions++;
+                    question.CorrectAnswer = correctAnswer.Text;
 
-                titleText.Clear();
-                thePicture.Clear();
-                correctAnswer.Clear();
+                    list = BattleQuizForm.questions;
+                    list.Add(question);
+                    BattleQuizForm.totalQuestions++;
+
+                    titleText.Clear();
+                    thePicture.Clear();
+                    correctAnswer.Clear();
+                }
+
+                else
+                {
+                    list[questionId].Title = titleText.Text;
+                    if (file == null)
+                        file = thePicture.Text;
+                    
+                    list[questionId].Picture = Image.FromFile(file);
+                    list[questionId].FilePath = file;
+                    list[questionId].CorrectAnswer = correctAnswer.Text;
+                    
+                    QuestionList.QuestionListBox.Items[questionId] = titleText.Text;
+
+                    titleText.Clear();
+                    thePicture.Clear();
+                    correctAnswer.Clear();
+                    ToggleEditMode();
+                }
             }
+        }
+
+        public void ToggleEditMode()
+        {
+            if (!editMode)
+            {
+                editMode = true;
+                CreateButton.Text = "Edit";
+                AddQuestionTitle.Text = "Edit a Question";
+            }
+            else
+            {
+                editMode = false;
+                CreateButton.Text = "Create";
+                AddQuestionTitle.Text = "Add a new Question";
+            }
+        }
+
+        public void EditFromList(int selectedIndex)
+        {
+            titleText.Text = list[selectedIndex].Title;
+            thePicture.Text = list[selectedIndex].FilePath;
+            correctAnswer.Text = list[selectedIndex].CorrectAnswer;
+
+            questionId = selectedIndex;
         }
     }
 }

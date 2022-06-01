@@ -12,7 +12,7 @@ namespace BattleQuiz
 {
     public partial class QuestionList : Form
     {
-        private static ListBox QuestionListBox = new ListBox();
+        public static ListBox QuestionListBox = new ListBox();
         public QuestionList()
         {
             InitializeComponent();
@@ -23,6 +23,7 @@ namespace BattleQuiz
             QuestionListBox.Location = new Point(20, 20);
             QuestionListBox.Name = "QuestionListBox";
             QuestionListBox.Size = new Size(200, 200);
+            QuestionListBox.ScrollAlwaysVisible = false;
 
             foreach (var i in BattleQuizForm.questions)
             {
@@ -34,12 +35,31 @@ namespace BattleQuiz
 
             this.Controls.Add(QuestionListBox);
         }
+        private void Edit_Click(object sender, EventArgs e)
+        {
+            // grab the index of selected item
+            int index = QuestionListBox.SelectedIndex;
+
+            if (index < 0) return;
+
+            AddQuestionForm addQuestionForm = new AddQuestionForm();
+            addQuestionForm.ToggleEditMode();
+            addQuestionForm.EditFromList(index);
+            addQuestionForm.ShowDialog();
+        }
 
         private void Remove_Click(object sender, EventArgs e)
         {
+            if (QuestionListBox.SelectedIndex < 0) return;
+
             BattleQuizForm.questions.RemoveAt(QuestionListBox.SelectedIndex);
             QuestionListBox.Items.Remove(QuestionListBox.SelectedItem);
             BattleQuizForm.totalQuestions--;
+        }
+
+        private void Refresh_Click(object sender, EventArgs e)
+        {
+            QuestionListBox.Refresh();
         }
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.AddQuestionTitle = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -40,15 +40,15 @@
             this.thePicture = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // label1
+            // AddQuestionTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(304, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(191, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Add a new Question";
+            this.AddQuestionTitle.AutoSize = true;
+            this.AddQuestionTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.AddQuestionTitle.Location = new System.Drawing.Point(304, 57);
+            this.AddQuestionTitle.Name = "AddQuestionTitle";
+            this.AddQuestionTitle.Size = new System.Drawing.Size(191, 25);
+            this.AddQuestionTitle.TabIndex = 0;
+            this.AddQuestionTitle.Text = "Add a new Question";
             // 
             // label2
             // 
@@ -142,7 +142,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.AddQuestionTitle);
             this.Name = "AddQuestionForm";
             this.Text = "Add a new Question";
             this.ResumeLayout(false);
@@ -152,15 +152,15 @@
 
         #endregion
 
-        private Label label1;
+        private Label AddQuestionTitle;
         private Label label2;
         private Label label3;
         private Label label4;
-        private TextBox titleText;
-        private TextBox correctAnswer;
         private Button CreateButton;
         private Button CancelButton;
         private Button Browser;
-        private TextBox thePicture;
+        public TextBox titleText;
+        public TextBox correctAnswer;
+        public TextBox thePicture;
     }
 }

@@ -12,5 +12,6 @@ namespace BattleQuiz.Models
         public string Title { get; set; }
         public string CorrectAnswer { get; set; }
         public Image Picture { get; set; }
+        public string FilePath { get; set; }
     }
 }
