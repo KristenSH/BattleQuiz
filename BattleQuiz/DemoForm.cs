@@ -2,26 +2,21 @@ using BattleQuiz.Models;
 
 namespace BattleQuiz
 {
-    public partial class BattleQuizForm : Form
+    public partial class DemoForm : Form
     {
         private string correctAnswer;
         private int questionNumber = 1;
         private int score;
         private int percentage;
-        private int total;
+        private int totalQuestions;
 
-        public BattleQuizForm()
+        public DemoForm()
         {
             InitializeComponent();
 
-            total = AddQuestionForm.totalQuestions;
+            totalQuestions = 3;
 
             AskQuestion(questionNumber);
-        }
-
-        private void BattleQuizForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void CheckAnswerEvent(object sender, EventArgs e)
@@ -31,12 +26,12 @@ namespace BattleQuiz
                 score++;
             }
 
-            if (questionNumber == total)
+            if (questionNumber == totalQuestions)
             {
                 questionNumber = 0;
 
                 // calculate the precentage
-                percentage = (int)Math.Round((double)(score * 100) / total);
+                percentage = (int)Math.Round((double)(score * 100) / totalQuestions);
 
                 DialogResult dialogResult;
 
@@ -86,20 +81,34 @@ namespace BattleQuiz
 
         private void AskQuestion(int qnum)
         {
-            var allQuestions = MainMenu.questions;
-            int currentQnum = qnum - 1;
-            foreach (var i in allQuestions)
+            switch (qnum)
             {
-                int index = allQuestions.IndexOf(i);
+                case 1:
+                    pictureBox.Image = Properties.Resources.eldenLord;
 
-                pictureBox.Image = i.Picture;
-                lblQuestion.Text = i.Title;
-                correctAnswer = i.CorrectAnswer;
+                    lblQuestion.Text = "Which game is that man came from?";
 
-                if (index == currentQnum)
+                    correctAnswer = "Elden Ring";
+
                     break;
-                else
-                    continue;
+
+                case 2:
+                    pictureBox.Image = Properties.Resources._1064722;
+
+                    lblQuestion.Text = "Which game is this?";
+
+                    correctAnswer = "Final Fantasy VII";
+
+                    break;
+
+                case 3:
+                    pictureBox.Image = Properties.Resources.wp5478770_street_fighter_v_champion_edition_wallpapers;
+
+                    lblQuestion.Text = "Which game is this?";
+
+                    correctAnswer = "Street Fighter V";
+
+                    break;
             }
         }
 
@@ -132,8 +141,7 @@ namespace BattleQuiz
             QuestionList questionList = new QuestionList();
             questionList.ShowDialog();
         }
-
-        private void BattleQuizForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void DemoForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             EndQuiz();
         }
@@ -150,5 +158,6 @@ namespace BattleQuiz
             else
                 return;
         }
+
     }
 }

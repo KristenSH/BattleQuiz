@@ -15,8 +15,10 @@ namespace BattleQuiz
     {
         private string file;
         private int questionId;
-        private static List<Question> list;
+        private static List<Question> questionList;
         private bool editMode = false;
+        public static int totalQuestions;
+
 
         public AddQuestionForm()
         {
@@ -25,7 +27,9 @@ namespace BattleQuiz
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Form frm = Application.OpenForms["MainMenu"];
+            frm.Show();
+            Hide();
         }
 
         private void Browser_Click(object sender, EventArgs e)
@@ -50,6 +54,7 @@ namespace BattleQuiz
 
         private void CreateButton_Click(object sender, EventArgs e)
         {
+
             if (titleText.Text == "" || thePicture.Text == "" || correctAnswer.Text == "")
             {
                 MessageBox.Show("All fields are required to fill in", "Warning",
@@ -67,10 +72,21 @@ namespace BattleQuiz
                     question.FilePath = file;
 
                     question.CorrectAnswer = correctAnswer.Text;
+                    questionList = MainMenu.questions;
 
-                    list = BattleQuizForm.questions;
-                    list.Add(question);
-                    BattleQuizForm.totalQuestions++;
+                    bool alreadyExist = questionList.Any(item => item.Title == question.Title);
+
+                    if (alreadyExist)
+                    {
+                        MessageBox.Show("That question is already exist! Try insert new one.", "Warning",
+                           MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                    else
+                    {
+                        questionList.Add(question);
+                        totalQuestions++;
+                    }
 
                     titleText.Clear();
                     thePicture.Clear();
@@ -79,13 +95,13 @@ namespace BattleQuiz
 
                 else
                 {
-                    list[questionId].Title = titleText.Text;
+                    questionList[questionId].Title = titleText.Text;
                     if (file == null)
                         file = thePicture.Text;
                     
-                    list[questionId].Picture = Image.FromFile(file);
-                    list[questionId].FilePath = file;
-                    list[questionId].CorrectAnswer = correctAnswer.Text;
+                    questionList[questionId].Picture = Image.FromFile(file);
+                    questionList[questionId].FilePath = file;
+                    questionList[questionId].CorrectAnswer = correctAnswer.Text;
                     
                     QuestionList.QuestionListBox.Items[questionId] = titleText.Text;
 
@@ -115,9 +131,9 @@ namespace BattleQuiz
 
         public void EditFromList(int selectedIndex)
         {
-            titleText.Text = list[selectedIndex].Title;
-            thePicture.Text = list[selectedIndex].FilePath;
-            correctAnswer.Text = list[selectedIndex].CorrectAnswer;
+            titleText.Text = questionList[selectedIndex].Title;
+            thePicture.Text = questionList[selectedIndex].FilePath;
+            correctAnswer.Text = questionList[selectedIndex].CorrectAnswer;
 
             questionId = selectedIndex;
         }

@@ -1,6 +1,6 @@
 ﻿namespace BattleQuiz
 {
-    partial class BattleQuizForm
+    partial class DemoForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -132,7 +132,7 @@
             this.QuitQuiz.UseVisualStyleBackColor = true;
             this.QuitQuiz.Click += new System.EventHandler(this.QuitQuiz_Click);
             // 
-            // BattleQuizForm
+            // DemoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -145,10 +145,10 @@
             this.Controls.Add(this.lblQuestion);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "BattleQuizForm";
+            this.Name = "DemoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Battle Quiz";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BattleQuizForm_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DemoForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

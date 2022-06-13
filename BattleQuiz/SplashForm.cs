@@ -25,9 +25,9 @@ namespace BattleQuiz
             if (progressBar.Value == 100)
             {
                 timer.Enabled = false;
-                BattleQuizForm battleQuizForm = new BattleQuizForm();
-                battleQuizForm.Show();
-                this.Hide();
+                MainMenu mainMenu = new MainMenu();
+                mainMenu.Show();
+                Hide();
             }
         }
 

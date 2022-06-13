@@ -73,6 +73,7 @@
             this.Controls.Add(this.Remove);
             this.Name = "QuestionList";
             this.Text = "QuizBox";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QuestionList_FormClosing);
             this.Load += new System.EventHandler(this.QuestionList_Load);
             this.ResumeLayout(false);
 
