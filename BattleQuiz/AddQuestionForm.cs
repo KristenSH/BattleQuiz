@@ -27,9 +27,7 @@ namespace BattleQuiz
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            Form frm = Application.OpenForms["MainMenu"];
-            frm.Show();
-            Hide();
+            BackToMainMenu();
         }
 
         private void Browser_Click(object sender, EventArgs e)
@@ -136,6 +134,18 @@ namespace BattleQuiz
             correctAnswer.Text = questionList[selectedIndex].CorrectAnswer;
 
             questionId = selectedIndex;
+        }
+
+        private void AddQuestionForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            BackToMainMenu();
+        }
+
+        private void BackToMainMenu()
+        {
+            var frm = Application.OpenForms["MainMenu"];
+            frm.Enabled = true;
+            Hide();
         }
     }
 }

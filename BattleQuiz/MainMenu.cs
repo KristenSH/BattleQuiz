@@ -44,13 +44,14 @@ namespace BattleQuiz
 
         private void AddButton_Click(object sender, EventArgs e)
         {
+            Enabled = false;
             AddQuestionForm addQuestionForm = new AddQuestionForm();
             addQuestionForm.Show();
-            Hide();
         }
 
         private void QuestionListButton_Click(object sender, EventArgs e)
         {
+            Enabled = false;
             QuestionList questionListForm = new QuestionList();
 
             if (questionListForm.IsDisposed == true)
@@ -58,7 +59,6 @@ namespace BattleQuiz
                 questionListForm = new QuestionList();
             }
             questionListForm.Show();
-            Hide();
         }
 
         private void QuitButton_Click(object sender, EventArgs e)

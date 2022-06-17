@@ -145,6 +145,7 @@
             this.Controls.Add(this.AddQuestionTitle);
             this.Name = "AddQuestionForm";
             this.Text = "Add a new Question";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddQuestionForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

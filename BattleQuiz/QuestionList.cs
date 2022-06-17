@@ -68,7 +68,7 @@ namespace BattleQuiz
         private void QuestionList_FormClosing(object sender, FormClosingEventArgs e)
         {
             Form frm = Application.OpenForms["MainMenu"];
-            frm.Show();
+            frm.Enabled = true;
             Hide();
         }
     }
