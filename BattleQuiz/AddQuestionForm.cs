@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using BattleQuiz.Models;
+﻿using BattleQuiz.Models;
 
 namespace BattleQuiz
 {
@@ -52,7 +43,11 @@ namespace BattleQuiz
 
         private void CreateButton_Click(object sender, EventArgs e)
         {
+            CreateQuestion();
+        }
 
+        private void CreateQuestion()
+        {
             if (titleText.Text == "" || thePicture.Text == "" || correctAnswer.Text == "")
             {
                 MessageBox.Show("All fields are required to fill in", "Warning",
@@ -76,7 +71,7 @@ namespace BattleQuiz
 
                     if (alreadyExist)
                     {
-                        MessageBox.Show("That question is already exist! Try insert new one.", "Warning",
+                        MessageBox.Show("That question is already exist! Try insert new one.", "Already exist",
                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
 
@@ -84,6 +79,8 @@ namespace BattleQuiz
                     {
                         questionList.Add(question);
                         totalQuestions++;
+                        MessageBox.Show("Successfully added to the question list", "Success",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
                     titleText.Clear();
@@ -96,11 +93,11 @@ namespace BattleQuiz
                     questionList[questionId].Title = titleText.Text;
                     if (file == null)
                         file = thePicture.Text;
-                    
+
                     questionList[questionId].Picture = Image.FromFile(file);
                     questionList[questionId].FilePath = file;
                     questionList[questionId].CorrectAnswer = correctAnswer.Text;
-                    
+
                     QuestionList.QuestionListBox.Items[questionId] = titleText.Text;
 
                     titleText.Clear();

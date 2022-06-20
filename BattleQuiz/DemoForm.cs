@@ -1,5 +1,3 @@
-using BattleQuiz.Models;
-
 namespace BattleQuiz
 {
     public partial class DemoForm : Form
@@ -21,6 +19,11 @@ namespace BattleQuiz
 
         private void CheckAnswerEvent(object sender, EventArgs e)
         {
+            CheckAnswer();
+        }
+
+        private void CheckAnswer()
+        {
             if (txtAnswer.Text == correctAnswer)
             {
                 score++;
@@ -34,6 +37,7 @@ namespace BattleQuiz
                 percentage = (int)Math.Round((double)(score * 100) / totalQuestions);
 
                 DialogResult dialogResult;
+                string titleOfMessageBox = "Restart quiz";
 
                 if (score == 1)
                 {
@@ -41,7 +45,7 @@ namespace BattleQuiz
                         "Quiz ended!" + Environment.NewLine +
                         "You have answered " + score + " question correctly." + Environment.NewLine +
                         "Your total percentage is " + percentage + "%" + Environment.NewLine +
-                        "Click Yes to play again or click No to leave", "Confirm", MessageBoxButtons.YesNo
+                        "Click Yes to play again or click No to leave", titleOfMessageBox, MessageBoxButtons.YesNo
                         );
                 }
                 else if (score == 0)
@@ -50,7 +54,7 @@ namespace BattleQuiz
                         "Quiz ended!" + Environment.NewLine +
                         "You have answered no questions correctly." + Environment.NewLine +
                         "Your total percentage is " + percentage + "%" + Environment.NewLine +
-                        "Click Yes to play again or click No to leave", "Confirm", MessageBoxButtons.YesNo
+                        "Click Yes to play again or click No to leave", titleOfMessageBox, MessageBoxButtons.YesNo
                         );
                 }
                 else
@@ -59,7 +63,7 @@ namespace BattleQuiz
                         "Quiz ended!" + Environment.NewLine +
                         "You have answered " + score + " questions correctly." + Environment.NewLine +
                         "Your total percentage is " + percentage + "%" + Environment.NewLine +
-                        "Click Yes to play again or click No to leave", "Confirm", MessageBoxButtons.YesNo
+                        "Click Yes to play again or click No to leave", titleOfMessageBox, MessageBoxButtons.YesNo
                         );
                 }
 
@@ -159,5 +163,13 @@ namespace BattleQuiz
                 return;
         }
 
+        private void TxtAnswer_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                CheckAnswer();
+            }
+        }
     }
 }

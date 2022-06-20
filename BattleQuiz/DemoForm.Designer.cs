@@ -67,6 +67,7 @@
             this.txtAnswer.Name = "txtAnswer";
             this.txtAnswer.Size = new System.Drawing.Size(259, 23);
             this.txtAnswer.TabIndex = 2;
+            this.txtAnswer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtAnswer_KeyDown);
             // 
             // button1
             // 

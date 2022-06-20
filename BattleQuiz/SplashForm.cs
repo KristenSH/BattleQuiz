@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace BattleQuiz
+﻿namespace BattleQuiz
 {
     public partial class SplashForm : Form
     {
@@ -31,7 +21,7 @@ namespace BattleQuiz
             }
         }
 
-        private void SplashForm_FormClosing(Object sender, FormClosingEventArgs e)
+        private void SplashForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Environment.Exit(1);
         }
