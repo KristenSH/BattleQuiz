@@ -8,15 +8,15 @@
             InitializeComponent();
         }
 
-        private void timer_Tick(object sender, EventArgs e)
+        private void Timer_Tick(object sender, EventArgs e)
         {
             timer.Enabled = true;
             progressBar.Increment(2);
             if (progressBar.Value == 100)
             {
                 timer.Enabled = false;
-                MainMenu mainMenu = new MainMenu();
-                mainMenu.Show();
+                Login login = new Login();
+                login.Show();
                 Hide();
             }
         }

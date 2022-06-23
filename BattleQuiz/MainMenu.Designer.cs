@@ -64,9 +64,9 @@
             this.QuitButton.Name = "QuitButton";
             this.QuitButton.Size = new System.Drawing.Size(165, 47);
             this.QuitButton.TabIndex = 2;
-            this.QuitButton.Text = "Quit";
+            this.QuitButton.Text = "Log Out";
             this.QuitButton.UseVisualStyleBackColor = true;
-            this.QuitButton.Click += new System.EventHandler(this.QuitButton_Click);
+            this.QuitButton.Click += new System.EventHandler(this.LogoutButton_Click);
             // 
             // QuestionListButton
             // 
@@ -116,6 +116,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main Menu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainMenu_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainMenu_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

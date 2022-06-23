@@ -5,6 +5,7 @@ namespace BattleQuiz
     public partial class MainMenu : Form
     {
         public static List<Question> questions = new List<Question>();
+        private bool closePending = false;
 
         public MainMenu()
         {
@@ -52,12 +53,24 @@ namespace BattleQuiz
             questionListForm.Show();
         }
 
-        private void QuitButton_Click(object sender, EventArgs e)
+        private void LogoutButton_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Hide();
+            Form frm = Application.OpenForms["Login"];
+            frm.Show();
         }
 
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Logout(sender, e);
+        }
+
+        private void Logout(object s, FormClosingEventArgs e)
+        {
+            closePending = true;
+        }
+
+        private void MainMenu_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
