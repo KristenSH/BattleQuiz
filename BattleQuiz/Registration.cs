@@ -33,7 +33,8 @@ namespace BattleQuiz
             {
                 if (passwordTxt.Text == confirmPasswordTxt.Text)
                 {
-                    cmd = new SqlCommand("select * from [Table] where username='" + usernameTxt.Text + "'", cn);
+                    cmd = new SqlCommand("select * from [Table] where username=@username", cn);
+                    cmd.Parameters.AddWithValue("username", usernameTxt.Text);
                     dr = cmd.ExecuteReader();
                     if (dr.Read())
                     {
@@ -59,6 +60,10 @@ namespace BattleQuiz
             {
                 MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            usernameTxt.Clear();
+            passwordTxt.Clear();
+            confirmPasswordTxt.Clear();
         }
 
         private void CancelButton_Click(object sender, EventArgs e)

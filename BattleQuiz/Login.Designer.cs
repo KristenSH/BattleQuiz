@@ -35,6 +35,7 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.Btn_signup = new System.Windows.Forms.Button();
+            this.BtnUpdate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -74,7 +75,7 @@
             // 
             this.btnLogin.Location = new System.Drawing.Point(23, 237);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(132, 23);
+            this.btnLogin.Size = new System.Drawing.Size(84, 23);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -92,19 +93,30 @@
             // 
             // Btn_signup
             // 
-            this.Btn_signup.Location = new System.Drawing.Point(230, 237);
+            this.Btn_signup.Location = new System.Drawing.Point(281, 237);
             this.Btn_signup.Name = "Btn_signup";
-            this.Btn_signup.Size = new System.Drawing.Size(146, 23);
+            this.Btn_signup.Size = new System.Drawing.Size(95, 23);
             this.Btn_signup.TabIndex = 6;
             this.Btn_signup.Text = "Sign up";
             this.Btn_signup.UseVisualStyleBackColor = true;
             this.Btn_signup.Click += new System.EventHandler(this.Btn_signup_Click);
             // 
+            // BtnUpdate
+            // 
+            this.BtnUpdate.Location = new System.Drawing.Point(134, 237);
+            this.BtnUpdate.Name = "BtnUpdate";
+            this.BtnUpdate.Size = new System.Drawing.Size(120, 23);
+            this.BtnUpdate.TabIndex = 7;
+            this.BtnUpdate.Text = "Update password";
+            this.BtnUpdate.UseVisualStyleBackColor = true;
+            this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(401, 296);
+            this.ClientSize = new System.Drawing.Size(401, 271);
+            this.Controls.Add(this.BtnUpdate);
             this.Controls.Add(this.Btn_signup);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnLogin);
@@ -133,5 +145,6 @@
         private Label lblTitle;
         private Button BtnSignUp;
         private Button Btn_signup;
+        private Button BtnUpdate;
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 
 namespace BattleQuiz
 {
@@ -30,7 +25,9 @@ namespace BattleQuiz
         {
             if (password.Text != string.Empty || username.Text != string.Empty)
             {
-                cmd = new SqlCommand("select * from [Table] where username='" + username.Text + "' and password='" + password.Text + "'", cn);
+                cmd = new SqlCommand("select * from [Table] where username = @username and password = @password", cn);
+                cmd.Parameters.AddWithValue("username", username.Text);
+                cmd.Parameters.AddWithValue("password", password.Text);
                 dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
@@ -51,6 +48,8 @@ namespace BattleQuiz
                 MessageBox.Show("Please enter value value in all field", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            username.Clear();
+            password.Clear();
         }
 
         private void Btn_signup_Click(object sender, EventArgs e)
@@ -58,6 +57,13 @@ namespace BattleQuiz
             Hide();
             Registration registration = new Registration();
             registration.ShowDialog();
+        }
+
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            Hide();
+            UpdatePassword updatePassword = new UpdatePassword();
+            updatePassword.ShowDialog();
         }
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)

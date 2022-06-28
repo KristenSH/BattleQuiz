@@ -36,12 +36,13 @@
             this.confirmPasswordTxt = new System.Windows.Forms.TextBox();
             this.registerButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // username
             // 
             this.username.AutoSize = true;
-            this.username.Location = new System.Drawing.Point(12, 34);
+            this.username.Location = new System.Drawing.Point(13, 59);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(60, 15);
             this.username.TabIndex = 0;
@@ -50,7 +51,7 @@
             // password
             // 
             this.password.AutoSize = true;
-            this.password.Location = new System.Drawing.Point(12, 92);
+            this.password.Location = new System.Drawing.Point(12, 111);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(57, 15);
             this.password.TabIndex = 1;
@@ -59,7 +60,7 @@
             // confirmPassword
             // 
             this.confirmPassword.AutoSize = true;
-            this.confirmPassword.Location = new System.Drawing.Point(12, 146);
+            this.confirmPassword.Location = new System.Drawing.Point(12, 162);
             this.confirmPassword.Name = "confirmPassword";
             this.confirmPassword.Size = new System.Drawing.Size(104, 15);
             this.confirmPassword.TabIndex = 2;
@@ -67,30 +68,30 @@
             // 
             // usernameTxt
             // 
-            this.usernameTxt.Location = new System.Drawing.Point(194, 34);
+            this.usernameTxt.Location = new System.Drawing.Point(195, 59);
             this.usernameTxt.Name = "usernameTxt";
-            this.usernameTxt.Size = new System.Drawing.Size(185, 23);
+            this.usernameTxt.Size = new System.Drawing.Size(214, 23);
             this.usernameTxt.TabIndex = 3;
             // 
             // passwordTxt
             // 
-            this.passwordTxt.Location = new System.Drawing.Point(194, 84);
+            this.passwordTxt.Location = new System.Drawing.Point(194, 103);
             this.passwordTxt.Name = "passwordTxt";
-            this.passwordTxt.Size = new System.Drawing.Size(185, 23);
+            this.passwordTxt.Size = new System.Drawing.Size(214, 23);
             this.passwordTxt.TabIndex = 4;
             this.passwordTxt.UseSystemPasswordChar = true;
             // 
             // confirmPasswordTxt
             // 
-            this.confirmPasswordTxt.Location = new System.Drawing.Point(194, 143);
+            this.confirmPasswordTxt.Location = new System.Drawing.Point(194, 159);
             this.confirmPasswordTxt.Name = "confirmPasswordTxt";
-            this.confirmPasswordTxt.Size = new System.Drawing.Size(185, 23);
+            this.confirmPasswordTxt.Size = new System.Drawing.Size(214, 23);
             this.confirmPasswordTxt.TabIndex = 5;
             this.confirmPasswordTxt.UseSystemPasswordChar = true;
             // 
             // registerButton
             // 
-            this.registerButton.Location = new System.Drawing.Point(32, 204);
+            this.registerButton.Location = new System.Drawing.Point(12, 204);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(75, 23);
             this.registerButton.TabIndex = 6;
@@ -108,11 +109,22 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTitle.Location = new System.Drawing.Point(119, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(183, 21);
+            this.lblTitle.TabIndex = 8;
+            this.lblTitle.Text = "Create an new account";
+            // 
             // Registration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(466, 271);
+            this.ClientSize = new System.Drawing.Size(421, 234);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.registerButton);
             this.Controls.Add(this.confirmPasswordTxt);
@@ -141,5 +153,6 @@
         private TextBox confirmPasswordTxt;
         private Button registerButton;
         private Button cancelButton;
+        private Label lblTitle;
     }
 }
